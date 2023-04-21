@@ -13,11 +13,21 @@
     font-size: 30px;
 }
 
-.navigationLink {
+.navigationActive {
     margin: 20px;
     text-transform: uppercase;
     font-weight: 600;
+    font-size: 13px;
+    text-decoration: none;
+    pointer-events: none;
+    color: #b7b7b7;
+}
+
+.navigationInactive {
+    margin: 20px;
+    font-weight: 600;
     font-size: 15px;
+    text-transform: uppercase;
     text-decoration: none;
     color: #fff;
 }

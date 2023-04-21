@@ -8,10 +8,11 @@ const Header = () => {
       <div className='headerContainer'>
         <div className='titleText'>Client List App</div>
         <nav>
-          <NavLink className='navigationLink' to="/">
+
+          <NavLink className={({isActive})=> isActive ? 'navigationActive' : 'navigationInactive'} to="/">
             List
           </NavLink>
-          <NavLink className='navigationLink' to="/form">
+          <NavLink className={({isActive})=> isActive ? 'navigationActive' : 'navigationInactive'} to="/form">
             Add Client
           </NavLink>
         </nav>

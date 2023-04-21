@@ -6,18 +6,22 @@ import {
 	Routes,
 	Route,
 } from "react-router-dom";
+import { Provider } from 'react-redux';
+import store from './Redux/store';
 
 const App = () => {
 	return (
-		<Router>
-			<div>
-				<Header />
-				<Routes>
-					<Route path="/form" element={<FormClient />} />
-					<Route path="/" element={<List />} />
-				</Routes>
-			</div>
-		</Router>
+		<Provider store={store}>
+			<Router>
+				<div>
+					<Header />
+					<Routes>
+						<Route path="/form" element={<FormClient />} />
+						<Route path="/" element={<List />} />
+					</Routes>
+				</div>
+			</Router>
+		</Provider>
 	);
 }
 
