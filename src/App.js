@@ -1,10 +1,13 @@
 import './App.css';
+import FormClient from './Components/FormClient'
+import Header from './Components/Header'
 
 const App = () => {
 	return (
-		<div className="App">
-			Hi  
-		</div>
+		<>
+			<Header />
+			<FormClient />
+		</>
 	);
 }
 
