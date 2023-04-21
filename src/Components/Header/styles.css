@@ -1,10 +1,23 @@
 .headerContainer {
     display: flex;
     align-items: center;
-    padding-left: 30px;
+    justify-content: space-between;
+    padding: 0 40px;
     height: 100px;
     background-color: #1976D2;
+}
+
+.titleText {
     color: #fff;
     font-weight: bold;
     font-size: 30px;
+}
+
+.navigationLink {
+    margin: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    color: #fff;
 }

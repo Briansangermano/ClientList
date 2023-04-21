@@ -1,0 +1,31 @@
+.itemContainer {
+    display: flex !important;
+    justify-content: flex-start !important;
+    margin: 10px !important;
+    padding: 20px !important;
+    width: 50%;
+    border: 1px solid #1976D2 !important;
+}
+
+.avatarContainer {
+    margin-left: 10px;
+}
+
+.infoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 20px;
+}
+
+.nameText {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1976D2;
+}
+
+.avatar {
+    background-color: #1976D2 !important;
+    width: 50px !important;
+    height: 50px !important;
+}

@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import './styles.css';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-
+import './styles.css';
 
 const Form = () => {
   const [nombre, setNombre] = useState('');
