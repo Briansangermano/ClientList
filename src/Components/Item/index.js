@@ -11,9 +11,11 @@ const Item = ({ data }) => {
   const nameAvatar = () => name[0] + lastname[0];
   
   const returnDateBirthday = () => {
-    const timeStamp = new Timestamp(birthday.seconds, birthday.nanoseconds);
-    const date = new Date(timeStamp.toDate());
-    return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+    if (birthday) {
+      const timeStamp = new Timestamp(birthday.seconds, birthday.nanoseconds);
+      const date = new Date(timeStamp.toDate());
+      return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+    }
   }
 
   return (

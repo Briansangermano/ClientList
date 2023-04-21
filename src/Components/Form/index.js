@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+import { useNavigate } from 'react-router-dom';
 import { addClientsToFirebase } from '../../Redux/thunks';
+import { Timestamp } from "@firebase/firestore";
+import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import DatePickerComponent from '../DatePicker';
 import './styles.css';
 
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-
 const Form = () => {
+  const navigate = useNavigate();
+
   const [name, setName] = useState('');
   const [lastname, setLastname] = useState('');
   const [age, setAge] = useState('');
@@ -18,15 +21,19 @@ const Form = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(`Nombre: ${name}, Apellido: ${lastname}, Age: ${age}, Birthday: ${birthday}`);
     const data = {
       name,
       lastname,
       age,
-      birthday,
+      birthday: Timestamp.fromDate(new Date(birthday)),
     }
     dispatch(addClientsToFirebase(data));
+    navigate('/', { replace: true })
   };
+
+  const setValueBirthday = useCallback((value) => {
+    setBirthday(value);
+  }, []);
 
   return (
     <Box
@@ -60,19 +67,7 @@ const Form = () => {
         value={age}
         onChange={(e) => setAge(e.target.value)}
       />
-      {/* <TextField
-        className='textFields'
-        required
-        variant='outlined'
-        label='Birthday'
-        value={birthday}
-        onChange={(e) => setBirthday(e.target.value)}
-      /> */}
-      <DatePicker
-        label="Controlled picker"
-        value={birthday}
-        onChange={(newValue) => setBirthday(newValue)}
-      />
+      <DatePickerComponent value={birthday} setNewValue={setValueBirthday} />
       <Button className='addButton' variant="contained" onClick={handleSubmit}>Add Client</Button>
     </Box>
   );
