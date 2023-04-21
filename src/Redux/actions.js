@@ -1,12 +1,12 @@
 import {
-    GET_ALL_CLIENTS,
-    DECREMENT_COUNTER,
-} from './types'
+    SET_IS_FECHING,
+    SET_CLIENTS,
+} from './types';
 
-export const getAllClient = () => {
-  return { type: GET_ALL_CLIENTS };
+export const setIsFeching = () => {
+  return { type: SET_IS_FECHING };
 }
 
-export const decrementCounter = () => {
-  return { type: DECREMENT_COUNTER };
+export const setClients = (data) => {
+  return { type: SET_CLIENTS, payload: data };
 }

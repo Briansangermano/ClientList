@@ -1,4 +1,4 @@
-import FormClient from './Components/FormClient';
+import Form from './Components/Form';
 import Header from './Components/Header';
 import List from './Components/List';
 import {
@@ -16,7 +16,7 @@ const App = () => {
 				<div>
 					<Header />
 					<Routes>
-						<Route path="/form" element={<FormClient />} />
+						<Route path="/form" element={<Form />} />
 						<Route path="/" element={<List />} />
 					</Routes>
 				</div>

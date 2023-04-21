@@ -1,23 +1,26 @@
-import { combineReducers } from 'redux';
-import { GET_ALL_CLIENTS, DECREMENT_COUNTER } from './types';
+import { SET_IS_FECHING, SET_CLIENTS } from './types';
 
 const initialState = {
-  counter: 0
+  clients: [],
+  isFeching: false,
 };
 
-function counterReducer(state = initialState.counter, action) {
+const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_ALL_CLIENTS:
-      return state + 1;
-    case DECREMENT_COUNTER:
-      return state - 1;
+    case SET_IS_FECHING:
+      return {
+        ...state,
+        isFeching: true,
+      }
+    case SET_CLIENTS: 
+      return {
+        ...state,
+        clients: action.payload,
+        isFeching: false,
+      };
     default:
       return state;
   }
 }
-
-const rootReducer = combineReducers({
-  counter: counterReducer
-});
 
 export default rootReducer;
