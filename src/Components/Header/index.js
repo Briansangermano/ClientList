@@ -14,6 +14,9 @@ const Header = () => {
           <NavLink className={({isActive})=> isActive ? 'navigationActive' : 'navigationInactive'} to="/form">
             Add Client
           </NavLink>
+          <NavLink className={({isActive})=> isActive ? 'navigationActive' : 'navigationInactive'} to="/analysis">
+            Analysis
+          </NavLink>
         </nav>
       </div>
     </>

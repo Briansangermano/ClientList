@@ -3,11 +3,13 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addClientsToFirebase } from '../../Redux/thunks';
 import { Timestamp } from "@firebase/firestore";
+import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import DatePickerComponent from '../DatePicker';
+import DatePickerComponent from '../../Components/DatePicker';
 import './styles.css';
+
 
 const Form = () => {
   const navigate = useNavigate();
@@ -16,19 +18,25 @@ const Form = () => {
   const [lastname, setLastname] = useState('');
   const [age, setAge] = useState('');
   const [birthday, setBirthday] = useState('');
+  const [showError, setShowError] = useState(false);
 
   const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = {
-      name,
-      lastname,
-      age,
-      birthday: Timestamp.fromDate(new Date(birthday)),
+    if (name && lastname && age && birthday) {
+      event.preventDefault();
+      const data = {
+        name,
+        lastname,
+        age,
+        birthday: Timestamp.fromDate(new Date(birthday)),
+      }
+      dispatch(addClientsToFirebase(data));
+      setShowError(false);
+      navigate('/', { replace: true });
+    } else {
+      setShowError(true);
     }
-    dispatch(addClientsToFirebase(data));
-    navigate('/', { replace: true })
   };
 
   const setValueBirthday = useCallback((value) => {
@@ -69,6 +77,7 @@ const Form = () => {
       />
       <DatePickerComponent value={birthday} setNewValue={setValueBirthday} />
       <Button className='addButton' variant="contained" onClick={handleSubmit}>Add Client</Button>
+      {showError && <Typography className='textError'>Please, complete all fields</Typography>}
     </Box>
   );
 };

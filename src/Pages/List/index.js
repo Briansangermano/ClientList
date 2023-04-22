@@ -3,7 +3,7 @@ import { connect, useDispatch } from 'react-redux';
 import { List } from '@material-ui/core';
 import { getClientsToFirebase } from '../../Redux/thunks';
 import CircularProgress from '@mui/joy/CircularProgress';
-import Item from '../Item';
+import Item from '../../Components/Item';
 import './styles.css';
 
 const ClientList = ({ clientList, isFeching }) => {
