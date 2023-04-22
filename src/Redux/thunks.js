@@ -23,7 +23,7 @@ export const addClientsToFirebase = (data) => {
 	return async dispatch => {
 		try {
 			dispatch(setIsFeching());
-			await addDoc(collection(db, "clients"), data);
+			await addDoc(collection(db, 'clients'), data);
 			dispatch(getClientsToFirebase());
 		} catch(error) {
 			console.log(error);
@@ -35,7 +35,7 @@ export const deleteClientsToFirebase = (id) => {
 	return async dispatch => {
 		try {
 			dispatch(setIsFeching());
-			await deleteDoc(doc(db, "clients", id));
+			await deleteDoc(doc(db, 'clients', id));
 			dispatch(getClientsToFirebase());
 		} catch(error) {
 			console.log(error);

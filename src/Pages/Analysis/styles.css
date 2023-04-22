@@ -5,18 +5,22 @@
     padding-top: 50px;
 }
 
-.textFields {
-    margin: 15px 0 !important;
-    width: 300px;
-}
-
-.addButton {
-    margin: 20px 0 0 0 !important;
-}
-
 .titleForm {
     font-weight: 600;
     font-size: 30px;
     margin-bottom: 20px;
     color: #1976D2;
+}
+
+.containerInfo {
+    margin-top: 70px;
+    text-align: center;
+}
+
+.textAnalysis {
+    font-weight: bold !important;
+}
+
+.valueText {
+    color: #006400;
 }
